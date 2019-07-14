@@ -2,6 +2,10 @@ package model;
 
 public class BohrEnergyCalculator {
 
+    public static void main(String[] args) {
+        System.out.println(calculate(999, 2));
+    }
+
     public static double calculate(int start, int end){
 
         if(start == 0 || end == 0) {
@@ -13,6 +17,6 @@ public class BohrEnergyCalculator {
     }
 
     private static double getEnergy(int floor) {
-        return -1318.0 / Math.pow(floor, 2.0);
+        return -1312.0 / Math.pow(floor, 2.0);
     }
 }
