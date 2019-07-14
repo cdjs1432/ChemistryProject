@@ -3,7 +3,7 @@ package model;
 public class BohrEnergyCalculator {
 
     public static void main(String[] args) {
-        System.out.println(calculate(999, 2));
+        System.out.println(calculate(3, 2));
     }
 
     public static double calculate(int start, int end){

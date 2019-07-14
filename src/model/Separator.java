@@ -7,6 +7,10 @@ import java.util.List;
 
 public class Separator {
 
+    public static void main(String[] args) {
+        System.out.println(getAtomsByString("C6H12O6"));
+    }
+
     public static List<Atom> getAtomsByString(String synthetic) {
         List<Atom> inputs = bracket(synthetic);
         List<Atom> results = new ArrayList<>();
@@ -37,7 +41,7 @@ public class Separator {
                     i++;
                 }
 
-                if (i + 1 < solute.length && solute[i + 1] >= '1' && solute[i + 1] <= '9') {
+                if (i + 1 < solute.length && solute[i + 1] >= '0' && solute[i + 1] <= '9') {
                     results.add(new Atom(Integer.parseInt(String.copyValueOf(solute).substring(i + 1, i + 2)), String.copyValueOf(solute).substring(startIndex, i)));
                     i++;
                 } else {
@@ -70,7 +74,11 @@ public class Separator {
                     i++;
                 }
 
-                if(solute[i-1] >= '1' && solute[i-1] <= '9') {
+                if(solute[i-1] >= '0' && solute[i-1] <= '9' && solute[i-2] >= '0' && solute[i-2] <= '9' && solute[i-3] >= '0' && solute[i-3] <= '9') {
+                    results.add(new Atom(Integer.parseInt(String.copyValueOf(solute).substring(i-3, i)), String.copyValueOf(solute).substring(startIndex, i-3)));
+                } else if(solute[i-1] >= '0' && solute[i-1] <= '9' && solute[i-2] >= '0' && solute[i-2] <= '9') {
+                    results.add(new Atom(Integer.parseInt(String.copyValueOf(solute).substring(i-2, i)), String.copyValueOf(solute).substring(startIndex, i-2)));
+                } else if(solute[i-1] >= '0' && solute[i-1] <= '9') {
                     results.add(new Atom(Integer.parseInt(String.copyValueOf(solute).substring(i-1, i)), String.copyValueOf(solute).substring(startIndex, i-1)));
                 } else {
                     results.add(new Atom(1,  String.copyValueOf(solute).substring(startIndex, i)));
