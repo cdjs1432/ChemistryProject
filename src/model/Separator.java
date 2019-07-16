@@ -7,10 +7,6 @@ import java.util.List;
 
 public class Separator {
 
-    public static void main(String[] args) {
-        System.out.println(getAtomsByString("C6H12O6"));
-    }
-
     public static List<Atom> getAtomsByString(String synthetic) {
         List<Atom> inputs = bracket(synthetic);
         List<Atom> results = new ArrayList<>();

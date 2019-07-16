@@ -22,6 +22,16 @@ public class AtomInfo {
         return (int)Math.round(atoms.get(name).getMass());
     }
 
+    public static int getNumber(String symbol) {
+        try {
+            return atoms.get(symbol).number;
+        }
+        catch (Throwable t) {
+            t.printStackTrace();
+            return 0;
+        }
+    }
+
     static {
         atoms = new HashMap<>();
         atoms.put(null, new AtomInfo(0, 0));
